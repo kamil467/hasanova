@@ -5,19 +5,22 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b">
+      <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-[#00D4FF]/20">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <img src="https://i.imgur.com/YEK4Lw0.png" alt="Hasanova Tech Labs Logo" className="h-10" />
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text tracking-wider">HASANOVA</span>
+                <span className="text-xs text-[#0A1647] tracking-[0.2em] font-medium">TECH LABS</span>
+              </div>
             </div>
             <div className="hidden md:flex space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-blue-600">Home</a>
-              <a href="#services" className="text-gray-700 hover:text-blue-600">Services</a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600">About</a>
-              <a href="#contact" className="text-gray-700 hover:text-blue-600">Contact</a>
+              <a href="#home" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Home</a>
+              <a href="#services" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Services</a>
+              <a href="#about" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">About</a>
+              <a href="#contact" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Contact</a>
             </div>
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">
+            <button className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-white px-6 py-2 rounded-md hover:opacity-90 transition duration-300">
               Get Started
             </button>
           </div>
@@ -25,31 +28,31 @@ function App() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-28 pb-20 bg-gradient-to-b from-gray-50 to-white">
+      <section id="home" className="pt-28 pb-20 bg-gradient-to-b from-[#0A1647]/5 to-white">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 mb-10 md:mb-0">
-              <h1 className="text-5xl font-bold leading-tight mb-6">
+              <h1 className="text-5xl font-bold leading-tight mb-6 text-[#0A1647]">
                 Transforming Ideas into
-                <span className="text-blue-600"> Digital Reality</span>
+                <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text"> Digital Reality</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
                 Hasanova Tech Labs provides cutting-edge IT solutions and consultancy services to help businesses thrive in the digital age.
               </p>
               <div className="flex space-x-4">
-                <button className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 flex items-center">
+                <button className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-white px-8 py-3 rounded-md hover:opacity-90 transition duration-300 flex items-center">
                   Get Started <ChevronRight className="ml-2" size={20} />
                 </button>
-                <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-full hover:bg-blue-50 transition duration-300">
+                <button className="border-2 border-[#0A1647] text-[#0A1647] px-8 py-3 rounded-md hover:bg-[#0A1647]/5 transition duration-300">
                   Learn More
                 </button>
               </div>
             </div>
             <div className="md:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="IT Services" 
-                className="rounded-lg shadow-2xl"
+                src="/site_logo_1.jpg"
+                alt="Hasanova Tech Labs" 
+                className="rounded-lg shadow-2xl w-full max-w-md mx-auto"
               />
             </div>
           </div>
@@ -60,24 +63,24 @@ function App() {
       <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">Our Services</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We offer comprehensive IT solutions tailored to meet your business needs
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ServiceCard 
-              icon={<Code2 size={32} />}
+              icon={<Code2 size={32} className="text-[#00D4FF]" />}
               title="Software Development"
               description="Custom software solutions built with cutting-edge technologies"
             />
             <ServiceCard 
-              icon={<Cpu size={32} />}
+              icon={<Cpu size={32} className="text-[#00D4FF]" />}
               title="IT Consulting"
               description="Strategic technology consulting to drive business growth"
             />
             <ServiceCard 
-              icon={<Users size={32} />}
+              icon={<Users size={32} className="text-[#00D4FF]" />}
               title="Team Augmentation"
               description="Skilled IT professionals to strengthen your team"
             />
@@ -142,24 +145,24 @@ function App() {
             <ContactCard 
               icon={<Phone size={24} />}
               title="Phone"
-              info="+91 (XXX) XXX-XXXX"
+              info="+91 (888) 408-1427"
             />
             <ContactCard 
               icon={<MapPin size={24} />}
               title="Location"
-              info="Bangalore, India"
+              info="Chennai, India"
             />
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-[#0A1647] text-white py-12">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <img src="https://i.imgur.com/YEK4Lw0.png" alt="Hasanova Tech Labs Logo" className="h-10 mb-4" />
-              <p className="text-gray-400">
+              <img src="/site_logo_1.jpg" alt="Hasanova Tech Labs Logo" className="h-16 mb-4 bg-white rounded-lg p-2" />
+              <p className="text-gray-300">
                 Empowering businesses through technology innovation
               </p>
             </div>
