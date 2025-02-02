@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Cpu, Users, MessageSquare, ChevronRight, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { Code2, Cpu, Users, MessageSquare, ChevronRight, Mail, Phone, MapPin, Github, Linkedin, Twitter, Check, Clock, Shield, Smartphone, Cloud, ArrowRight } from 'lucide-react';
 
 function App() {
   return (
@@ -20,9 +20,16 @@ function App() {
               <a href="#about" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">About</a>
               <a href="#contact" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Contact</a>
             </div>
-            <button className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-white px-6 py-2 rounded-md hover:opacity-90 transition duration-300">
-              Get Started
-            </button>
+            <a 
+              href="#contact" 
+              className="group bg-gradient-to-r from-[#0A1647] to-[#00D4FF] p-[2px] rounded-md hover:scale-105 transition-transform duration-300"
+            >
+              <div className="bg-white px-6 py-2 rounded-[5px] hover:bg-transparent transition-colors duration-300">
+                <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text group-hover:text-white font-semibold flex items-center">
+                  Contact Us <ArrowRight className="ml-2 w-4 h-4" />
+                </span>
+              </div>
+            </a>
           </div>
         </div>
       </nav>
@@ -33,19 +40,32 @@ function App() {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <h1 className="text-5xl font-bold leading-tight mb-6 text-[#0A1647]">
-                Transforming Ideas into
-                <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text"> Digital Reality</span>
+                Innovating Today for a
+                <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text"> Smarter Tomorrow</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8">
-                Hasanova Tech Labs provides cutting-edge IT solutions and consultancy services to help businesses thrive in the digital age.
+                At Hasanova Tech Labs, we empower businesses with cutting-edge technology solutions tailored to their unique needs. Your trusted partner in digital transformation.
               </p>
-              <div className="flex space-x-4">
-                <button className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-white px-8 py-3 rounded-md hover:opacity-90 transition duration-300 flex items-center">
-                  Get Started <ChevronRight className="ml-2" size={20} />
-                </button>
-                <button className="border-2 border-[#0A1647] text-[#0A1647] px-8 py-3 rounded-md hover:bg-[#0A1647]/5 transition duration-300">
-                  Learn More
-                </button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a 
+                  href="#contact" 
+                  className="group bg-gradient-to-r from-[#0A1647] to-[#00D4FF] p-[2px] rounded-md hover:scale-105 transition-transform duration-300"
+                >
+                  <div className="bg-white px-8 py-3 rounded-[5px] hover:bg-transparent transition-colors duration-300">
+                    <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text group-hover:text-white font-semibold flex items-center">
+                      Request Free Consultation <ArrowRight className="ml-2 w-5 h-5" />
+                    </span>
+                  </div>
+                </a>
+                <a 
+                  href="#services" 
+                  className="group relative px-8 py-3 rounded-md border-2 border-[#0A1647] overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  <span className="relative text-[#0A1647] group-hover:text-white font-semibold flex items-center">
+                    Explore Services <ChevronRight className="ml-2 w-5 h-5" />
+                  </span>
+                </a>
               </div>
             </div>
             <div className="md:w-1/2">
@@ -65,62 +85,92 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">Our Services</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We offer comprehensive IT solutions tailored to meet your business needs
+              We combine affordability with top-tier expertise to deliver tailored solutions for startups, SMEs, and enterprises
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <ServiceCard 
               icon={<Code2 size={32} className="text-[#00D4FF]" />}
-              title="Software Development"
-              description="Custom software solutions built with cutting-edge technologies"
+              title="Web Development"
+              description="Static & dynamic websites, custom CMS solutions, and affordable e-commerce platforms"
             />
             <ServiceCard 
               icon={<Cpu size={32} className="text-[#00D4FF]" />}
               title="IT Consulting"
-              description="Strategic technology consulting to drive business growth"
+              description="Expert advice and strategies to optimize your business processes and technology infrastructure"
             />
             <ServiceCard 
-              icon={<Users size={32} className="text-[#00D4FF]" />}
-              title="Team Augmentation"
-              description="Skilled IT professionals to strengthen your team"
+              icon={<Smartphone className="w-8 h-8 text-[#00D4FF]" />}
+              title="Mobile App Development"
+              description="Intuitive and scalable mobile applications to reach your audience effectively"
+            />
+            <ServiceCard 
+              icon={<Cloud className="w-8 h-8 text-[#00D4FF]" />}
+              title="Azure Cloud Consulting"
+              description="Cost-effective Azure solutions, seamless migration, and secure infrastructure"
             />
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50">
+      {/* Features Section */}
+      <section className="py-20 bg-[#0A1647]/5">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="About Us" 
-                className="rounded-lg shadow-xl"
-              />
-            </div>
-            <div className="md:w-1/2 md:pl-12">
-              <h2 className="text-4xl font-bold mb-6">About Hasanova Tech Labs</h2>
-              <p className="text-gray-600 mb-6">
-                We are a dynamic IT services and consultancy company committed to delivering innovative solutions that drive digital transformation. Our team of experts combines technical excellence with industry insights to help businesses succeed.
-              </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="flex items-center">
-                  <div className="bg-blue-100 p-3 rounded-full mr-4">
-                    <Users className="text-blue-600" size={24} />
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">
+                Why Choose Hasanova Tech Labs?
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] rounded-lg flex items-center justify-center text-white">
+                    <Check className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold">Expert Team</h3>
-                    <p className="text-gray-600">Skilled professionals</p>
+                    <h3 className="font-semibold text-[#0A1647]">Affordable Excellence</h3>
+                    <p className="text-gray-600">High-quality solutions that fit your budget without compromising on quality</p>
                   </div>
                 </div>
-                <div className="flex items-center">
-                  <div className="bg-blue-100 p-3 rounded-full mr-4">
-                    <MessageSquare className="text-blue-600" size={24} />
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] rounded-lg flex items-center justify-center text-white">
+                    <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold">24/7 Support</h3>
-                    <p className="text-gray-600">Always available</p>
+                    <h3 className="font-semibold text-[#0A1647]">24/7 Support</h3>
+                    <p className="text-gray-600">Round-the-clock technical support and maintenance for your peace of mind</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] rounded-lg flex items-center justify-center text-white">
+                    <Shield className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-[#0A1647]">Certified Expertise</h3>
+                    <p className="text-gray-600">Azure-certified professionals with years of industry experience</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 className="font-semibold text-[#0A1647]">Web Development</h3>
+                    <p className="text-sm text-gray-600">React, WordPress, Shopify</p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 className="font-semibold text-[#0A1647]">Cloud Solutions</h3>
+                    <p className="text-sm text-gray-600">Azure DevOps, AI/ML, IoT</p>
+                  </div>
+                </div>
+                <div className="space-y-4 mt-8">
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 className="font-semibold text-[#0A1647]">Mobile Apps</h3>
+                    <p className="text-sm text-gray-600">iOS, Android, Cross-platform</p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 className="font-semibold text-[#0A1647]">E-commerce</h3>
+                    <p className="text-sm text-gray-600">Custom Solutions, Integration</p>
                   </div>
                 </div>
               </div>
@@ -133,8 +183,10 @@ function App() {
       <section id="contact" className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
-            <p className="text-gray-600">Ready to start your digital transformation journey?</p>
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">Get In Touch</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Contact us today to discuss how we can help your business achieve its goals!
+            </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <ContactCard 
@@ -178,10 +230,10 @@ function App() {
             <div>
               <h3 className="font-bold mb-4">Services</h3>
               <ul className="space-y-2">
-                <li className="text-gray-400">Software Development</li>
+                <li className="text-gray-400">Web Development</li>
                 <li className="text-gray-400">IT Consulting</li>
-                <li className="text-gray-400">Team Augmentation</li>
-                <li className="text-gray-400">Digital Transformation</li>
+                <li className="text-gray-400">Mobile App Development</li>
+                <li className="text-gray-400">Azure Cloud Consulting</li>
               </ul>
             </div>
             <div>
@@ -210,9 +262,11 @@ function App() {
 
 function ServiceCard({ icon, title, description }) {
   return (
-    <div className="p-8 border rounded-lg hover:shadow-lg transition duration-300">
-      <div className="text-blue-600 mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-4">{title}</h3>
+    <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-[#0A1647]/10">
+      <div className="w-12 h-12 bg-gradient-to-r from-[#0A1647]/10 to-[#00D4FF]/10 rounded-lg flex items-center justify-center mb-6">
+        {icon}
+      </div>
+      <h3 className="text-xl font-bold mb-3 text-[#0A1647]">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </div>
   );
