@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code2, Cpu, Users, MessageSquare, ChevronRight, Mail, Phone, MapPin, Github, Linkedin, Twitter, Check, Clock, Shield, Smartphone, Cloud, ArrowRight } from 'lucide-react';
+import { Code2, Cpu, Users, MessageSquare, ChevronRight, Mail, Phone, MapPin, Github, Linkedin, Twitter, Check, Clock, Shield, Smartphone, Cloud, ArrowRight, ExternalLink } from 'lucide-react';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
             <div className="hidden md:flex space-x-8">
               <a href="#home" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Home</a>
               <a href="#services" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Services</a>
+              <a href="#partner" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Partners</a>
               <a href="#about" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">About</a>
               <a href="#contact" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Contact</a>
             </div>
@@ -78,6 +79,8 @@ function App() {
           </div>
         </div>
       </section>
+
+   
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-white">
@@ -192,7 +195,7 @@ function App() {
             <ContactCard 
               icon={<Mail size={24} />}
               title="Email"
-              info="contact@hasanova.in"
+              info="info@hasanova.in"
             />
             <ContactCard 
               icon={<Phone size={24} />}
@@ -207,7 +210,61 @@ function App() {
           </div>
         </div>
       </section>
-
+   {/* Partner Section */}
+   <section id ="partner" className="py-20 bg-[#0A1647]/5">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">
+              Our Strategic Partner
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Together with Quadrate Tech Solutions, we deliver exceptional software development and IT services across India and Sri Lanka
+            </p>
+          </div>
+          <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="md:w-1/2">
+                <img 
+                  src="https://ik.imagekit.io/quadrate/QTS%20Logo%20Primary.png?updatedAt=1733854434969"
+                  alt="Quadrate Tech Solutions Logo" 
+                  className="w-full max-w-md mx-auto"
+                />
+              </div>
+              <div className="md:w-1/2 text-center md:text-left">
+                <h3 className="text-2xl font-bold mb-4 text-[#0A1647]">Quadrate Tech Solutions</h3>
+                <p className="text-gray-600 mb-6">
+                  Leading software development company in Sri Lanka, specializing in cutting-edge technology solutions.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                  {/*  <a 
+                    href="/partner"
+                    className="group bg-gradient-to-r from-[#0A1647] to-[#00D4FF] p-[2px] rounded-md hover:scale-105 transition-transform duration-300"
+                  >
+                 Add a link to the partner page  <div className="bg-white px-6 py-2 rounded-[5px] hover:bg-transparent transition-colors duration-300">
+                      <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text group-hover:text-white font-semibold flex items-center justify-center">
+                        Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                      </span>
+                    </div>
+                  
+                  </a>
+                    */} 
+                  <a 
+                    href="https://quadrate.lk/"
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="group relative px-6 py-2 rounded-md border-2 border-[#0A1647] overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    <span className="relative text-[#0A1647] group-hover:text-white font-semibold flex items-center justify-center">
+                      Visit Website <ExternalLink className="ml-2 w-4 h-4" />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Footer */}
       <footer className="bg-[#0A1647] text-white py-12">
         <div className="container mx-auto px-6">
