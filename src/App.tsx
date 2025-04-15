@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Code2, Cpu, Users, MessageSquare, ChevronRight, Mail, Phone, MapPin, Github, Linkedin, Twitter, Check, Clock, Shield, Smartphone, Cloud, ArrowRight, ExternalLink } from 'lucide-react';
-
+import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 function App() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      navigate('/' + (sectionId === 'home' ? '' : sectionId));
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }; 
+   useEffect(() => {
+    // Handle initial load and browser back/forward
+    const path = location.pathname.replace('/', '');
+    const targetId = path || 'home';
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location]);
+
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -15,14 +36,13 @@ function App() {
               </div>
             </div>
             <div className="hidden md:flex space-x-8">
-              <a href="#home" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Home</a>
-              <a href="#services" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Services</a>
-              <a href="#partner" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Partners</a>
-              <a href="#about" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">About</a>
-              <a href="#contact" className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Contact</a>
+              <button onClick={() => scrollToSection('home')} className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Home</button>
+              <button onClick={() => scrollToSection('services')} className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Services</button>
+              <button onClick={() => scrollToSection('partner')} className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Partners</button>
+              <button onClick={() => scrollToSection('contact')} className="text-[#0A1647] hover:text-[#00D4FF] transition-colors">Contact</button>
             </div>
-            <a 
-              href="#contact" 
+            <button 
+              onClick={() => scrollToSection('contact')}
               className="group bg-gradient-to-r from-[#0A1647] to-[#00D4FF] p-[2px] rounded-md hover:scale-105 transition-transform duration-300"
             >
               <div className="bg-white px-6 py-2 rounded-[5px] hover:bg-transparent transition-colors duration-300">
@@ -30,92 +50,180 @@ function App() {
                   Contact Us <ArrowRight className="ml-2 w-4 h-4" />
                 </span>
               </div>
-            </a>
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="pt-28 pb-20 bg-gradient-to-b from-[#0A1647]/5 to-white">
+
+         <section id="home" className="pt-28 pb-20 bg-gradient-to-b from-[#0A1647]/5 to-white">
+         <div className="container mx-auto px-6">
+           <div className="flex flex-col md:flex-row items-center justify-between">
+             <div className="md:w-1/2 mb-10 md:mb-0">
+               <h1 className="text-5xl font-bold leading-tight mb-6 text-[#0A1647]">
+                 Innovating Today for a
+                 <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text"> Smarter Tomorrow</span>
+               </h1>
+               <p className="text-xl text-gray-600 mb-8">
+                 At Hasanova Tech Labs, we empower businesses with cutting-edge technology solutions tailored to their unique needs. Your trusted partner in digital transformation.
+               </p>
+               <div className="flex flex-col sm:flex-row gap-4">
+                 <a 
+                   href="contact" 
+                   className="group bg-gradient-to-r from-[#0A1647] to-[#00D4FF] p-[2px] rounded-md hover:scale-105 transition-transform duration-300"
+                 >
+                   <div className="bg-white px-8 py-3 rounded-[5px] hover:bg-transparent transition-colors duration-300">
+                     <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text group-hover:text-white font-semibold flex items-center">
+                       Request Free Consultation <ArrowRight className="ml-2 w-5 h-5" />
+                     </span>
+                   </div>
+                 </a>
+                 <a 
+                   href="services" 
+                   className="group relative px-8 py-3 rounded-md border-2 border-[#0A1647] overflow-hidden"
+                 >
+                   <div className="absolute inset-0 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                   <span className="relative text-[#0A1647] group-hover:text-white font-semibold flex items-center">
+                     Explore Services <ChevronRight className="ml-2 w-5 h-5" />
+                   </span>
+                 </a>
+               </div>
+             </div>
+             <div className="md:w-1/2">
+               <img 
+                 src="/site_logo_1.jpg"
+                 alt="Hasanova Tech Labs" 
+                 className="rounded-lg shadow-2xl w-full max-w-md mx-auto"
+               />
+             </div>
+           </div>
+         </div>
+       </section>
+ 
+      <section id="services" className="py-20 bg-white">
+ <div className="container mx-auto px-6">
+   <div className="text-center mb-16">
+     <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">Our Services</h2>
+     <p className="text-gray-600 max-w-2xl mx-auto">
+       We combine affordability with top-tier expertise to deliver tailored solutions for startups, SMEs, and enterprises
+     </p>
+   </div>
+   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <ServiceCard 
+       icon={<Code2 size={32} className="text-[#00D4FF]" />}
+       title="Web Development"
+       description="Static & dynamic websites, custom CMS solutions, and affordable e-commerce platforms"
+     />
+     <ServiceCard 
+       icon={<Cpu size={32} className="text-[#00D4FF]" />}
+       title="IT Consulting"
+       description="Expert advice and strategies to optimize your business processes and technology infrastructure"
+     />
+     <ServiceCard 
+       icon={<Smartphone className="w-8 h-8 text-[#00D4FF]" />}
+       title="Mobile App Development"
+       description="Intuitive and scalable mobile applications to reach your audience effectively"
+     />
+     <ServiceCard 
+       icon={<Cloud className="w-8 h-8 text-[#00D4FF]" />}
+       title="Azure Cloud Consulting"
+       description="Cost-effective Azure solutions, seamless migration, and secure infrastructure"
+     />
+   </div>
+ </div>
+</section>
+    
+      
+     
+      <section id="contact" className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <h1 className="text-5xl font-bold leading-tight mb-6 text-[#0A1647]">
-                Innovating Today for a
-                <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text"> Smarter Tomorrow</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                At Hasanova Tech Labs, we empower businesses with cutting-edge technology solutions tailored to their unique needs. Your trusted partner in digital transformation.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="#contact" 
-                  className="group bg-gradient-to-r from-[#0A1647] to-[#00D4FF] p-[2px] rounded-md hover:scale-105 transition-transform duration-300"
-                >
-                  <div className="bg-white px-8 py-3 rounded-[5px] hover:bg-transparent transition-colors duration-300">
-                    <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text group-hover:text-white font-semibold flex items-center">
-                      Request Free Consultation <ArrowRight className="ml-2 w-5 h-5" />
-                    </span>
-                  </div>
-                </a>
-                <a 
-                  href="#services" 
-                  className="group relative px-8 py-3 rounded-md border-2 border-[#0A1647] overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                  <span className="relative text-[#0A1647] group-hover:text-white font-semibold flex items-center">
-                    Explore Services <ChevronRight className="ml-2 w-5 h-5" />
-                  </span>
-                </a>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">Get In Touch</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Contact us today to discuss how we can help your business achieve its goals!
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <ContactCard 
+              icon={<Mail size={24} />}
+              title="Email"
+              info="info@hasanova.in"
+            />
+            <ContactCard 
+              icon={<Phone size={24} />}
+              title="Phone"
+              info="+91 (888) 408-1427"
+            />
+            <ContactCard 
+              icon={<MapPin size={24} />}
+              title="Location"
+              info="Chennai, India"
+            />
+          </div>
+        </div>
+      </section>
+      
+      <section id ="partner" className="py-20 bg-[#0A1647]/5">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">
+              Our Strategic Partner
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Together with Quadrate Tech Solutions, we deliver exceptional software development and IT services across India and Sri Lanka
+            </p>
+          </div>
+          <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="md:w-1/2">
+                <img 
+                  src="https://ik.imagekit.io/quadrate/QTS%20Logo%20Primary.png?updatedAt=1733854434969"
+                  alt="Quadrate Tech Solutions Logo" 
+                  className="w-full max-w-md mx-auto"
+                />
               </div>
-            </div>
-            <div className="md:w-1/2">
-              <img 
-                src="/site_logo_1.jpg"
-                alt="Hasanova Tech Labs" 
-                className="rounded-lg shadow-2xl w-full max-w-md mx-auto"
-              />
+              <div className="md:w-1/2 text-center md:text-left">
+                <h3 className="text-2xl font-bold mb-4 text-[#0A1647]">Quadrate Tech Solutions</h3>
+                <p className="text-gray-600 mb-6">
+                  Leading software development company in Sri Lanka, specializing in cutting-edge technology solutions.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                  {/*  <a 
+                    href="/partner"
+                    className="group bg-gradient-to-r from-[#0A1647] to-[#00D4FF] p-[2px] rounded-md hover:scale-105 transition-transform duration-300"
+                  >
+                 Add a link to the partner page  <div className="bg-white px-6 py-2 rounded-[5px] hover:bg-transparent transition-colors duration-300">
+                      <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text group-hover:text-white font-semibold flex items-center justify-center">
+                        Learn More <ArrowRight className="ml-2 w-4 h-4" />
+                      </span>
+                    </div>
+                  
+                  </a>
+                    */} 
+                  <a 
+                    href="https://quadrate.lk/"
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="group relative px-6 py-2 rounded-md border-2 border-[#0A1647] overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    <span className="relative text-[#0A1647] group-hover:text-white font-semibold flex items-center justify-center">
+                      Visit Website <ExternalLink className="ml-2 w-4 h-4" />
+                    </span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      {/* Hero Section */}
+     
 
    
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">Our Services</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We combine affordability with top-tier expertise to deliver tailored solutions for startups, SMEs, and enterprises
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <ServiceCard 
-              icon={<Code2 size={32} className="text-[#00D4FF]" />}
-              title="Web Development"
-              description="Static & dynamic websites, custom CMS solutions, and affordable e-commerce platforms"
-            />
-            <ServiceCard 
-              icon={<Cpu size={32} className="text-[#00D4FF]" />}
-              title="IT Consulting"
-              description="Expert advice and strategies to optimize your business processes and technology infrastructure"
-            />
-            <ServiceCard 
-              icon={<Smartphone className="w-8 h-8 text-[#00D4FF]" />}
-              title="Mobile App Development"
-              description="Intuitive and scalable mobile applications to reach your audience effectively"
-            />
-            <ServiceCard 
-              icon={<Cloud className="w-8 h-8 text-[#00D4FF]" />}
-              title="Azure Cloud Consulting"
-              description="Cost-effective Azure solutions, seamless migration, and secure infrastructure"
-            />
-          </div>
-        </div>
-      </section>
-
+     
       {/* Features Section */}
       <section className="py-20 bg-[#0A1647]/5">
         <div className="container mx-auto px-6">
@@ -183,88 +291,9 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">Get In Touch</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Contact us today to discuss how we can help your business achieve its goals!
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <ContactCard 
-              icon={<Mail size={24} />}
-              title="Email"
-              info="info@hasanova.in"
-            />
-            <ContactCard 
-              icon={<Phone size={24} />}
-              title="Phone"
-              info="+91 (888) 408-1427"
-            />
-            <ContactCard 
-              icon={<MapPin size={24} />}
-              title="Location"
-              info="Chennai, India"
-            />
-          </div>
-        </div>
-      </section>
+     
    {/* Partner Section */}
-   <section id ="partner" className="py-20 bg-[#0A1647]/5">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text">
-              Our Strategic Partner
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Together with Quadrate Tech Solutions, we deliver exceptional software development and IT services across India and Sri Lanka
-            </p>
-          </div>
-          <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="md:w-1/2">
-                <img 
-                  src="https://ik.imagekit.io/quadrate/QTS%20Logo%20Primary.png?updatedAt=1733854434969"
-                  alt="Quadrate Tech Solutions Logo" 
-                  className="w-full max-w-md mx-auto"
-                />
-              </div>
-              <div className="md:w-1/2 text-center md:text-left">
-                <h3 className="text-2xl font-bold mb-4 text-[#0A1647]">Quadrate Tech Solutions</h3>
-                <p className="text-gray-600 mb-6">
-                  Leading software development company in Sri Lanka, specializing in cutting-edge technology solutions.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                  {/*  <a 
-                    href="/partner"
-                    className="group bg-gradient-to-r from-[#0A1647] to-[#00D4FF] p-[2px] rounded-md hover:scale-105 transition-transform duration-300"
-                  >
-                 Add a link to the partner page  <div className="bg-white px-6 py-2 rounded-[5px] hover:bg-transparent transition-colors duration-300">
-                      <span className="bg-gradient-to-r from-[#0A1647] to-[#00D4FF] text-transparent bg-clip-text group-hover:text-white font-semibold flex items-center justify-center">
-                        Learn More <ArrowRight className="ml-2 w-4 h-4" />
-                      </span>
-                    </div>
-                  
-                  </a>
-                    */} 
-                  <a 
-                    href="https://quadrate.lk/"
-                    target="_blank"
-                    rel="noopener noreferrer" 
-                    className="group relative px-6 py-2 rounded-md border-2 border-[#0A1647] overflow-hidden"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#0A1647] to-[#00D4FF] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                    <span className="relative text-[#0A1647] group-hover:text-white font-semibold flex items-center justify-center">
-                      Visit Website <ExternalLink className="ml-2 w-4 h-4" />
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+  
       {/* Footer */}
       <footer className="bg-[#0A1647] text-white py-12">
         <div className="container mx-auto px-6">
@@ -278,10 +307,10 @@ function App() {
             <div>
               <h3 className="font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                <li><a href="#home" className="text-gray-400 hover:text-white">Home</a></li>
-                <li><a href="#services" className="text-gray-400 hover:text-white">Services</a></li>
-                <li><a href="#about" className="text-gray-400 hover:text-white">About</a></li>
-                <li><a href="#contact" className="text-gray-400 hover:text-white">Contact</a></li>
+                <li><button onClick={() => scrollToSection('home')} className="text-gray-400 hover:text-white">Home</button></li>
+                <li><button onClick={() => scrollToSection('services')} className="text-gray-400 hover:text-white">Services</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="text-gray-400 hover:text-white">Contact</button></li>
+                <li><button onClick={() => scrollToSection('partner')} className="text-gray-400 hover:text-white">Partners</button></li>
               </ul>
             </div>
             <div>
