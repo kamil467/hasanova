@@ -62,3 +62,9 @@ At Hasanova Tech Labs, we are committed to delivering high-quality, affordable, 
     If this is for your website, ensure you include relevant keywords like "affordable web development," "Azure cloud migration," and "custom e-commerce solutions" to improve search engine visibility.
 
 ---
+
+### SEO Optmizations
+
+1. Restructing the URLs (friendly URLS for best SEO practices)
+2. Keywords, meta tags
+3. Submiiting sitemap.xml to search Engines
