@@ -1,0 +1,3 @@
+Sitemap: https://hasanova.in/sitemap.xml
+User-agent: *
+Allow: /
